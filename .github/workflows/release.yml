@@ -46,4 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpx semantic-release
+        run: |
+          # cant use pnpm
+          npm i -g @semantic-release/git
+          npx semantic-release
