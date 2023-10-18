@@ -46,6 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # can't use pnpm here
         run: |
-          npm install -g semantic-release @semantic-release/git
+          npm install -g semantic-release @semantic-release/git @semantic-release/release-notes-generator
           npx semantic-release
