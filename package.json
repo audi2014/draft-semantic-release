@@ -1,0 +1,9 @@
+{
+  "name": "@audi2014/draft-semantic-release",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "devDependencies": {
+    "semantic-release": "^22.0.5"
+  }
+}
