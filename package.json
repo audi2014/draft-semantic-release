@@ -4,6 +4,12 @@
   "description": "",
   "license": "MIT",
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^22.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
