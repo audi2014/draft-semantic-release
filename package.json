@@ -1,7 +1,7 @@
 {
   "name": "@audi2014/draft-semantic-release",
   "version": "0.0.0",
-  "description": "",
+  "description": "test",
   "license": "MIT",
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
