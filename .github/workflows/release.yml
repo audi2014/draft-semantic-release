@@ -48,5 +48,5 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           # can't use pnpm here
         run: |
-          npm install -g semantic-release @semantic-release/git @semantic-release/release-notes-generator
+          npm install -g semantic-release @semantic-release/git @semantic-release/release-notes-generator @semantic-release/changelog
           npx semantic-release
