@@ -60,7 +60,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          git config --global user.name 'github-actions-bot'
-          git config --global user.email 'github-actions-bot@hive.com'
           pnpm version prerelease --preid ${{ env.TAG_NAME }}
-          pnpm publish --access public --tag ${{ env.TAG_NAME }}
+          pnpm publish --access public
