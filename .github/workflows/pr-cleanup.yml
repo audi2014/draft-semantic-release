@@ -1,0 +1,45 @@
+name: PR-Cleanup
+on:
+  # Allow to trigger the workflow manually via the GitHub UI and also allow to
+  # select a custom branch
+  # @see https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+  workflow_dispatch:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read # for checkout
+
+jobs:
+  release:
+    name: PR-Cleanup
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+    steps:
+      # basic setup
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      # Custom release steps
+      - name: Extracting package.json name and version
+        run: echo "BRANCH_NAME=$(echo ${{ github.head_ref || github.ref_name }} | sed -r 's/[/]+/-/g')" >> $GITHUB_ENV
+
+      - name: Formatting tag name
+        run: echo "TAG_NAME=$(echo v${{ env.BRANCH_NAME }})" >> $GITHUB_ENV
+
+      - name: Cleanup
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          VERSIONS=$(npm view @audi2014/npmjs-test versions --json)
+          LIST=$(node -pe "JSON.parse(process.argv[1]).filter(v=>v.startsWith('$(echo $TAG_NAME)')).join('\n')" $VERSIONS)
+          for value in "${LIST[@]}"
+          do
+            npm unpublish @audi2014/npmjs-test@$value
+          done
