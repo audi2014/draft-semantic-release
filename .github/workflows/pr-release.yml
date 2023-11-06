@@ -50,12 +50,12 @@ jobs:
       - name: Install ./ Dependencies
         run: pnpm install
       # Custom release steps
-      - name: Extracting package.json name and version
+      - name: SHA_SHORT
+        run: echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: BRANCH_NAME
         run: echo "BRANCH_NAME=$(echo ${{ github.head_ref || github.ref_name }} | sed -r 's/[/]+/-/g')" >> $GITHUB_ENV
-
-      - name: Formatting tag name
-        run: echo "TAG_NAME=$(echo v${{ env.BRANCH_NAME }}-${{ git rev-parse --short HEAD }})" >> $GITHUB_ENV
-
+      - name: TAG_NAME
+        run: echo "TAG_NAME=$(echo v${{ env.BRANCH_NAME }}-${{ env.SHA_SHORT }})" >> $GITHUB_ENV
       - name: PR-Release
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
@@ -63,7 +63,6 @@ jobs:
           git config --global user.email 'github-actions-bot@hive.com'
           pnpm version prerelease --preid ${{ env.TAG_NAME }}
           pnpm publish --no-git-checks --access public --tag ${{ env.TAG_NAME }}
-
       - uses: actions/github-script@v3
         name: Add release version to comments
         with:
