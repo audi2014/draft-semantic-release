@@ -41,5 +41,5 @@ jobs:
           LIST=$(node -pe "JSON.parse(process.argv[1]).filter(v=>v.startsWith('$(echo $TAG_NAME)')).join('\n')" $VERSIONS)
           for value in "${LIST[@]}"
           do
-            npm unpublish @audi2014/npmjs-test@$value
+            echo unpublish @audi2014/npmjs-test@$value
           done
