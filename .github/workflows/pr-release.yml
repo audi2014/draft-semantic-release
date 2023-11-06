@@ -64,7 +64,7 @@ jobs:
           git config --global user.name 'github-actions-bot'
           git config --global user.email 'github-actions-bot@hive.com'
           pnpm version prerelease --preid ${{ env.VERSION }}
-          pnpm publish --no-git-checks --access public --tag ${{ env.VERSION }}
+          pnpm publish --no-git-checks
       - uses: actions/github-script@v3
         name: Add release version to comments
         with:
@@ -74,5 +74,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'This PR has been released to npm as version '+ process.env.PACKAGE_NAME + '@' + process.env.VERSION
+              body: 'This PR has been released to npm as version `'+ process.env.PACKAGE_NAME + '@' + process.env.VERSION + '`'
             })
