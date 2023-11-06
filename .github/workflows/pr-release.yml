@@ -50,19 +50,21 @@ jobs:
       - name: Install ./ Dependencies
         run: pnpm install
       # Custom release steps
+      - name: PACKAGE_NAME
+        run: echo "PACKAGE_NAME=$(cut -d '=' -f 2 <<< $(npm run env | grep 'npm_package_name'))" >> $GITHUB_ENV
       - name: SHA_SHORT
         run: echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: BRANCH_NAME
         run: echo "BRANCH_NAME=$(echo ${{ github.head_ref || github.ref_name }} | sed -r 's/[/]+/-/g')" >> $GITHUB_ENV
-      - name: TAG_NAME
-        run: echo "TAG_NAME=$(echo v${{ env.BRANCH_NAME }}-${{ env.SHA_SHORT }})" >> $GITHUB_ENV
+      - name: VERSION
+        run: echo "VERSION=$(echo v${{ env.BRANCH_NAME }}-${{ env.SHA_SHORT }})" >> $GITHUB_ENV
       - name: PR-Release
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
           git config --global user.name 'github-actions-bot'
           git config --global user.email 'github-actions-bot@hive.com'
-          pnpm version prerelease --preid ${{ env.TAG_NAME }}
-          pnpm publish --no-git-checks --access public --tag ${{ env.TAG_NAME }}
+          pnpm version prerelease --preid ${{ env.VERSION }}
+          pnpm publish --no-git-checks --access public --tag ${{ env.VERSION }}
       - uses: actions/github-script@v3
         name: Add release version to comments
         with:
@@ -72,5 +74,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'This PR has been released to npm as version `' + process.env.TAG_NAME + '`'
+              body: 'This PR has been released to npm as version '+ process.env.PACKAGE_NAME + '@' + process.env.VERSION
             })
