@@ -57,9 +57,8 @@ jobs:
         run: echo "TAG_NAME=$(echo v${{ env.BRANCH_NAME }}${{ github.sha }})" >> $GITHUB_ENV
 
       - name: PR-Release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
           git config --global user.name 'github-actions-bot'
           git config --global user.email 'github-actions-bot@hive.com'
           pnpm version prerelease --preid ${{ env.TAG_NAME }}
