@@ -54,7 +54,7 @@ jobs:
         run: echo "BRANCH_NAME=$(echo ${{ github.head_ref || github.ref_name }} | sed -r 's/[/]+/-/g')" >> $GITHUB_ENV
 
       - name: Formatting tag name
-        run: echo "TAG_NAME=$(echo v${{ env.BRANCH_NAME }}${{ github.sha }})" >> $GITHUB_ENV
+        run: echo "TAG_NAME=$(echo v${{ env.BRANCH_NAME }}-${{ git rev-parse --short HEAD }})" >> $GITHUB_ENV
 
       - name: PR-Release
         run: |
