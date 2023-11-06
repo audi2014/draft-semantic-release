@@ -1,4 +1,4 @@
-name: Release
+name: PR-Release
 on:
   # Allow to trigger the workflow manually via the GitHub UI and also allow to
   # select a custom branch
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   release:
-    name: Release
+    name: PR-Release
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
