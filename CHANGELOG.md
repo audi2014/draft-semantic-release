@@ -1,3 +1,17 @@
+## [1.4.2](https://github.com/audi2014/draft-semantic-release/compare/v1.4.1...v1.4.2) (2026-01-09)
+
+
+### Bug Fixes
+
+* 🐛 ci npm ([541092d](https://github.com/audi2014/draft-semantic-release/commit/541092d52585347de4c465bf508439a3533af2f9))
+* 🐛 npm ([ed975f9](https://github.com/audi2014/draft-semantic-release/commit/ed975f9217493e1e1dfa7bab26ba08fab10ad35e))
+
+
+### BREAKING CHANGES
+
+* 🧨 +
+* 🧨 +
+
 ## [1.4.1](https://github.com/audi2014/draft-semantic-release/compare/v1.4.0...v1.4.1) (2026-01-09)
 
 
