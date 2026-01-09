@@ -55,3 +55,4 @@
 
 1 new release from master?
 2 devel created from master
+3 beta was created from devel
