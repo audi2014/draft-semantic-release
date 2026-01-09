@@ -4,6 +4,7 @@
   "description": "test",
   "license": "MIT",
   "scripts": {
+    "commit": "pnpx git-cz",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
