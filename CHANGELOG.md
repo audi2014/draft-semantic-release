@@ -27,4 +27,4 @@
 
 * **@semantic-release/changelog:** @semantic-release/changelog ([ac0eb8a](https://github.com/audi2014/draft-semantic-release/commit/ac0eb8a3db269410d81575867e7599f3a432bd0c))
 
-1 DEVEL BRANCH created!
+1 new release from master?
