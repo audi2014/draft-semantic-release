@@ -1,3 +1,22 @@
+# [1.5.0](https://github.com/audi2014/draft-semantic-release/compare/v1.4.3...v1.5.0) (2026-01-09)
+
+
+### Bug Fixes
+
+* 🐛 devel ([be041ce](https://github.com/audi2014/draft-semantic-release/commit/be041cecf433bcc9a783c7cabef1712bcb51a503))
+
+
+### Features
+
+* 🎸 release beta ([50e2021](https://github.com/audi2014/draft-semantic-release/commit/50e20210ea875f42b4693779b691e0a7853d407a))
+* 🎸 release devel ([b9e829b](https://github.com/audi2014/draft-semantic-release/commit/b9e829bd9b1e3b6e2d312addfd784aa565cfd3c5))
+
+
+### BREAKING CHANGES
+
+* 🧨 +
+* 🧨 +
+
 # [1.5.0-beta.2](https://github.com/audi2014/draft-semantic-release/compare/v1.5.0-beta.1...v1.5.0-beta.2) (2026-01-09)
 
 # [1.5.0-beta.1](https://github.com/audi2014/draft-semantic-release/compare/v1.4.2...v1.5.0-beta.1) (2026-01-09)
