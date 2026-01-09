@@ -1,3 +1,15 @@
+## [1.4.1](https://github.com/audi2014/draft-semantic-release/compare/v1.4.0...v1.4.1) (2026-01-09)
+
+
+### Bug Fixes
+
+* 🐛 pnpx git-cz ([4a6d154](https://github.com/audi2014/draft-semantic-release/commit/4a6d15466d8f216bb595fa174d009920e647d52f))
+
+
+### BREAKING CHANGES
+
+* 🧨 release
+
 # [1.4.0](https://github.com/audi2014/draft-semantic-release/compare/v1.3.1...v1.4.0) (2026-01-09)
 
 
