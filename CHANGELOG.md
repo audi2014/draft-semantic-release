@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/audi2014/draft-semantic-release/compare/v1.9.0...v1.10.0) (2026-01-12)
+
+
+### Features
+
+* **feat 5:** feat 5 ([b1cf729](https://github.com/audi2014/draft-semantic-release/commit/b1cf729f75cea4e121778fdd18d967d3e771b0a3))
+
 # [1.9.0](https://github.com/audi2014/draft-semantic-release/compare/v1.8.0...v1.9.0) (2026-01-12)
 
 
