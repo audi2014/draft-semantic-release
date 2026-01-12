@@ -4,14 +4,13 @@
     "url": "https://github.com/audi2014/draft-semantic-release"
   },
   "name": "@audi2014/npmjs-test",
-  "version": "1.7.0-beta.3",
+  "version": "1.7.0",
   "description": "test",
   "license": "MIT",
   "scripts": {
     "commit": "npx git-cz",
     "automerge:master-beta": "npx ts-node .scripts/auto-resolve-conflicts.ts master beta",
-    "semantic-release": "semantic-release",
-    "beta-node-v": "echo beta && node -v"
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
