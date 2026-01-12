@@ -31,5 +31,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CI_COMMIT_BRANCH: ${{ github.ref_name }}
         run: |
           npx semantic-release@25.0.1
