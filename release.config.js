@@ -44,10 +44,10 @@ const pluginCommitAnalyzerConfig = [
 
 const plugins = [
   pluginCommitAnalyzerConfig,
-  // ...(isReleaseBranch ? [
-  //   "@semantic-release/release-notes-generator",
-  //   "@semantic-release/changelog",
-  // ] : []),
+  ...(isReleaseBranch ? [
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+  ] : []),
   "@semantic-release/npm",
   "@semantic-release/git",
 ]
