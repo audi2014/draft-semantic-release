@@ -1,6 +1,7 @@
 name: Trigger Renovate on App
 
 on:
+  workflow_dispatch:
   # Trigger when the Release workflow completes successfully
   workflow_run:
     workflows: ["Release"]
@@ -57,7 +58,7 @@ jobs:
           
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.RENOVATE_TRIGGER_TOKEN }}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             https://api.github.com/repos/audi2014/draft-semantic-release-app/dispatches \
             -d '{"event_type":"renovate-trigger","client_payload":{"package":"@audi2014/npmjs-test","version":"${{ steps.package-info.outputs.version }}","branch":"${{ steps.package-info.outputs.branch }}"}}'
           
