@@ -87,8 +87,8 @@ Target branch: ${baseBranch}
  * Main function to handle conflict resolution
  */
 async function main(): Promise<void> {
-  const baseBranch = process.env.BASE_BRANCH;
-  const headBranch = process.env.HEAD_BRANCH;
+  const baseBranch = process.env.BASE_BRANCH || process.argv[2]
+  const headBranch = process.env.HEAD_BRANCH || process.argv[3]
 
   if (!baseBranch || !headBranch) {
     console.error('❌ BASE_BRANCH and HEAD_BRANCH environment variables are required');

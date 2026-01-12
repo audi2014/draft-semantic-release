@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "commit": "npx git-cz",
+    "automerge:master-beta": "npx ts-node .scripts/auto-resolve-conflicts.ts master beta",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
