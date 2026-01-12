@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/audi2014/draft-semantic-release/compare/v1.8.0...v1.9.0) (2026-01-12)
+
+
+### Features
+
+* **renovate:** renovate ([c020675](https://github.com/audi2014/draft-semantic-release/commit/c020675eaefdec45e0b59dd25fcbdf4cebccfe74))
+
 # [1.8.0](https://github.com/audi2014/draft-semantic-release/compare/v1.7.0...v1.8.0) (2026-01-12)
 
 
