@@ -1,4 +1,8 @@
-const branch = process.env.CI_COMMIT_BRANCH || 'master';
+const branch = process.env.CI_COMMIT_BRANCH;
+if(!branch) {
+  throw new Error('CI_COMMIT_BRANCH environment variable is not set.');
+}
+
 const isReleaseBranch = ['master'].includes(branch);
 
 const branches = [
