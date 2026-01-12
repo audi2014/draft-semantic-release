@@ -1,5 +1,3 @@
-# [1.7.0-beta.2](https://github.com/audi2014/draft-semantic-release/compare/v1.7.0-beta.1...v1.7.0-beta.2) (2026-01-12)
-
 # [1.6.0](https://github.com/audi2014/draft-semantic-release/compare/v1.5.1...v1.6.0) (2026-01-12)
 
 
