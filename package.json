@@ -10,7 +10,8 @@
   "scripts": {
     "commit": "npx git-cz",
     "automerge:master-beta": "npx ts-node .scripts/auto-resolve-conflicts.ts master beta",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "beta-node-v": "echo beta && node -v"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
