@@ -1,4 +1,3 @@
-# .github/workflows/sync-branches.yml
 name: Sync Master to Beta
 on:
   push:
