@@ -1,3 +1,10 @@
+# [1.5.0-devel.2](https://github.com/audi2014/draft-semantic-release/compare/v1.5.0-devel.1...v1.5.0-devel.2) (2026-01-12)
+
+
+### Features
+
+* 🎸 release beta ([50e2021](https://github.com/audi2014/draft-semantic-release/commit/50e20210ea875f42b4693779b691e0a7853d407a))
+
 ## [1.4.2](https://github.com/audi2014/draft-semantic-release/compare/v1.4.1...v1.4.2) (2026-01-09)
 
 
