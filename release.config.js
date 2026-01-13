@@ -51,9 +51,11 @@ const plugins = [
   ...(isReleaseBranch ? [
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
-    "@semantic-release/git",
   ] : []),
   "@semantic-release/npm",
+  ...(isReleaseBranch ? [
+    "@semantic-release/git",
+  ] : []),
 ]
 
 const config = {
