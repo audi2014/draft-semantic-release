@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/audi2014/draft-semantic-release/compare/v1.18.0...v1.19.0) (2026-01-13)
+
+
+### Features
+
+* new ci ([ac29d24](https://github.com/audi2014/draft-semantic-release/commit/ac29d24d0031af579179496b06c128811061bb88))
+
 # [1.18.0](https://github.com/audi2014/draft-semantic-release/compare/v1.17.0...v1.18.0) (2026-01-13)
 
 
