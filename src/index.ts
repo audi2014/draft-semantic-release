@@ -1,5 +1,5 @@
 const feature = {
-    name: "New Feature11",
+    name: "New Feature11 beta",
 }
 
 export default feature;
