@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/audi2014/draft-semantic-release/compare/v1.17.0...v1.18.0) (2026-01-13)
+
+
+### Features
+
+* **new ci flow:** new ci flow ([f2bb190](https://github.com/audi2014/draft-semantic-release/commit/f2bb190de7f0260c98afe9831b8c7271298084eb))
+
 # [1.17.0](https://github.com/audi2014/draft-semantic-release/compare/v1.16.0...v1.17.0) (2026-01-13)
 
 
