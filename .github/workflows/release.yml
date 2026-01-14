@@ -3,8 +3,14 @@ on:
   push:
     branches:
       - master
-      - beta
-      - devel
+      - "hotfix/**"
+      - "hotfix-*"
+      - "hot-fix/**"
+      - "hot-fix-*"
+      - "betafix/**"
+      - "betafix-*"
+      - "beta-fix/**"
+      - "beta-fix-*"
 
 permissions:
   contents: read # for checkout

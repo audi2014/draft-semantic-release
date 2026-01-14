@@ -5,17 +5,22 @@ if(!branch) {
 
 const isReleaseBranch = ['master'].includes(branch);
 
+// Get sanitized branch name for unique npm dist-tags and version strings
+const sanitizeBranchName = (name) => {
+  return name.replace(/\//g, '-').replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+};
+
 const branches = [
   "master",
   {
     name: "{hotfix,hot-fix}{-,/}*",
-    prerelease: "hotfix",
-    channel: "hotfix"
+    prerelease: sanitizeBranchName(branch),
+    channel: sanitizeBranchName(branch)
   },
   {
     name: "{betafix,beta-fix}{-,/}*",
-    prerelease: "betafix",
-    channel: "betafix"
+    prerelease: sanitizeBranchName(branch),
+    channel: sanitizeBranchName(branch)
   },
 ];
 

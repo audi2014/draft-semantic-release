@@ -19,47 +19,27 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
 
-      - name: Get published version from npm registry
-        id: package-info
-        run: |
-          # Get the branch that triggered the release
-          BRANCH="${{ github.event.workflow_run.head_branch }}"
-          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
-          
-          # Determine which dist-tag to query based on branch
-          if [ "$BRANCH" = "master" ]; then
-            DIST_TAG="latest"
-          elif [ "$BRANCH" = "beta" ]; then
-            DIST_TAG="beta"
-          elif [ "$BRANCH" = "devel" ]; then
-            DIST_TAG="devel"
-          else
-            echo "Unknown branch: $BRANCH"
-            exit 1
-          fi
-          
-          echo "Querying npm registry for @audi2014/npmjs-test@$DIST_TAG"
-          
-          # Get the actual published version from npm registry
-          VERSION=$(npm view @audi2014/npmjs-test@$DIST_TAG version)
-          
-          if [ -z "$VERSION" ]; then
-            echo "❌ Failed to get version from npm registry"
-            exit 1
-          fi
-          
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "dist_tag=$DIST_TAG" >> $GITHUB_OUTPUT
-          echo "✅ Package @audi2014/npmjs-test@$VERSION (dist-tag: $DIST_TAG) was published from branch $BRANCH"
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
-      - name: Trigger Renovate in App Repo
-        run: |
-          echo "Triggering Renovate for version ${{ steps.package-info.outputs.version }} on branch ${{ steps.package-info.outputs.branch }}"
-          
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.RENOVATE_WEBHOOK_PAT }}" \
-            https://api.github.com/repos/audi2014/draft-semantic-release-app/dispatches \
-            -d '{"event_type":"renovate-trigger","client_payload":{"package":"@audi2014/npmjs-test","version":"${{ steps.package-info.outputs.version }}","branch":"${{ steps.package-info.outputs.branch }}"}}'
-          
-          echo "✅ Renovate triggered successfully!"
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Get published version from git tag
+        id: package-info
+        env:
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: npx ts-node .scripts/get-package-info.ts
+
+      - name: Check branch and trigger Renovate in App Repo
+        if: steps.package-info.outputs.branch != ''
+        env:
+          GH_TOKEN: ${{ secrets.RENOVATE_WEBHOOK_PAT }}
+          BRANCH: ${{ steps.package-info.outputs.branch }}
+          VERSION: ${{ steps.package-info.outputs.version }}
+          DIST_TAG: ${{ steps.package-info.outputs.dist_tag }}
+          SANITIZED_TAG: ${{ steps.package-info.outputs.sanitized_tag }}
+        run: npx ts-node .scripts/trigger-renovate.ts
