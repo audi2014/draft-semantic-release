@@ -8,12 +8,14 @@ const isReleaseBranch = ['master'].includes(branch);
 const branches = [
   "master",
   {
-    "name": "beta",
-    "prerelease": true,
+    name: "{hotfix,hot-fix}{-,/}*",
+    prerelease: "hotfix",
+    channel: "hotfix"
   },
   {
-    "name": "devel",
-    "prerelease": true,
+    name: "{betafix,beta-fix}{-,/}*",
+    prerelease: "betafix",
+    channel: "betafix"
   },
 ];
 
