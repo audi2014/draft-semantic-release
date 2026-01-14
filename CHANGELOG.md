@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/audi2014/draft-semantic-release/compare/v1.19.0...v1.20.0) (2026-01-14)
+
+
+### Features
+
+* add maintenance release support with hotfix/betafix branches ([d308c7b](https://github.com/audi2014/draft-semantic-release/commit/d308c7bb307ef31906ad6d5a2a762cc4aad79fcf))
+
 # [1.19.0](https://github.com/audi2014/draft-semantic-release/compare/v1.18.0...v1.19.0) (2026-01-13)
 
 
